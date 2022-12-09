@@ -10,6 +10,8 @@ COPY . .
 
 RUN npm i 
 
+RUN npm uninstall react-scripts 
+
 RUN npm install react-scripts
 
 CMD ["npm", "run", "start"]
