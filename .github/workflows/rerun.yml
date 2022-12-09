@@ -1,4 +1,4 @@
-name: Deployment
+name: Rerun
 on:
   push:
     branches: [ dev ]
