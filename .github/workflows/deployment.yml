@@ -94,9 +94,9 @@ jobs:
               --name backend -it -p 9876:9876 \
               --network fifa \
               --restart always \
-              -e CLICKHOUSE_BASE_URL=${{ env.CLICKHOUSE_BASE_URL }} \ 
-              -e CLICKHOUSE_USER=${{ env.CLICKHOUSE_USER }} \
-              -e CLICKHOUSE_PASSWORD=${{ env.CLICKHOUSE_PASSWORD }} kingmoh/dashboard-backend:latest
+              -e CLICKHOUSE_BASE_URL=$CLICKHOUSE_BASE_URL \ 
+              -e CLICKHOUSE_USER=$CLICKHOUSE_USER \
+              -e CLICKHOUSE_PASSWORD=$CLICKHOUSE_PASSWORD kingmoh/dashboard-backend:latest
             if [[ $? -ne 0 ]]; then docker restart backend; fi
 
             docker run -d 
