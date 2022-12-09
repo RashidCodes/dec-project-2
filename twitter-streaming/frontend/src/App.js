@@ -54,9 +54,8 @@ function App() {
   const fetchGuestTokenFromBackend = async () => {
     try {
       const response = await axios({
-        method: 'post',
-        url: '/backend/access_guest',
-        data: JSON.stringify({ token: access_token }),
+        method: 'get',
+        url: '/backend/access',
         headers: {
           'Content-Type': 'application/json'
         }
