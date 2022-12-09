@@ -24,4 +24,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            cd /home/ubuntu/twitter-streaming
             bash docker-compose restart 
