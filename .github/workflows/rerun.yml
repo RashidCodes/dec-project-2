@@ -1,0 +1,15 @@
+name: Deployment
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  restart-services:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: checkout dev 
+        uses: actions/checkout@v3
+      - name: logging into remote instance 
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+          exit 
