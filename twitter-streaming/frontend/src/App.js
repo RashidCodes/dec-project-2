@@ -76,8 +76,8 @@ function App() {
     // local 
     // supersetDomain: "http://localhost:8088",
     mountPoint: document.getElementById("my-superset-container"),
-    fetchGuestToken: () => fetchGuestTokenFromBackend(),
-    // dashboardUiConfig: { hideTitle: true },
+    fetchGuestToken: () => fetchGuestTokenFromBackend()
+    
   })
   
 
