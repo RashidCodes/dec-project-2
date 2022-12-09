@@ -22,26 +22,26 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASS }}
 
-      # - name: Build and push nginx
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: ./twitter-streaming/nginx
-      #     push: true
-      #     tags: kingmoh/nginx:latest
+      - name: Build and push nginx
+        uses: docker/build-push-action@v3
+        with:
+          context: ./twitter-streaming/nginx
+          push: true
+          tags: kingmoh/nginx:latest
 
-      # - name: Build and push tweet producer
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: ./twitter-streaming/producer
-      #     push: true
-      #     tags: kingmoh/tweet_producer:latest
+      - name: Build and push tweet producer
+        uses: docker/build-push-action@v3
+        with:
+          context: ./twitter-streaming/producer
+          push: true
+          tags: kingmoh/tweet_producer:latest
 
-      # - name: Build and push backend
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: ./twitter-streaming/backend
-      #     push: true
-      #     tags: kingmoh/dashboard-backend:latest
+      - name: Build and push backend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./twitter-streaming/backend
+          push: true
+          tags: kingmoh/dashboard-backend:latest
 
       - name: Build and push frontend
         uses: docker/build-push-action@v3
@@ -71,9 +71,9 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker-compose pull kingmoh/dashboard:latest
-            docker-compose pull kingmoh/dashboard-backend:latest
-            docker-compose pull kingmoh/nginx:latest
+            docker pull kingmoh/dashboard:latest
+            docker pull kingmoh/dashboard-backend:latest
+            docker pull kingmoh/nginx:latest
             docker network create -d bridge fifa
             docker run --name frontend -it -p 3000:3000 --network fifa -d --restart always kingmoh/dashboard:latest
             docker run --name backend -it -p 9876:9876 --network fifa -d --restart always \
