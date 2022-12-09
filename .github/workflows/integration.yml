@@ -17,6 +17,9 @@ jobs:
         run: |
           cd twitter-streaming/backend
           pip install -r requirements.txt
+      - name: Set Python path 
+        run: |
+          echo "PYTHONPATH=twitter-streaming/backend" >> $GITHUB_ENV
       - name: Test with pytest
         run: |
           cd twitter-streaming/backend
