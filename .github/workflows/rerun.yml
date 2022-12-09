@@ -17,3 +17,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           source: twitter-streaming
           target: /home/ubuntu
+      - name: restart services 
+        uses: appleboy/ssh-action@master 
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            bash docker-compose restart 
