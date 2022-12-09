@@ -17,12 +17,9 @@ jobs:
         run: |
           cd twitter-streaming/backend
           pip install -r requirements.txt
-      # - name: set pythonpath
-      #   run: |
-      #     echo "PYTHONPATH=twitter-streaming/producer" >> $GITHUB_ENV
       - name: Test with pytest
         run: |
-          echo "APP_ACCESS_TOKEN=${{ secrets.APP_ACCESS_TOKEN }}" >> $GITHUB_ENV
+          cd twitter-streaming/backend
           pytest test_main.py
 
 
