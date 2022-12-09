@@ -68,7 +68,7 @@ function App() {
   }
 
   embedDashboard({
-    id: "1314c7ab-4510-47ec-a21a-d91c045c1fe1",
+    id: "966fdcd0-cb58-46c4-9aa3-ca38389d0209",
 
     // production
     supersetDomain: "http://3.87.51.21:8088/",
