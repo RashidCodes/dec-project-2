@@ -24,5 +24,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd $HOME/twitter-streaming
-            bash restart_services.sh
+            echo "Updating images"
+            docker-compose pull
+            docker network create -d bridge fifa
+            docker-compose restart
