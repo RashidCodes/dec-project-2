@@ -71,14 +71,4 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd $HOME/twitter-streaming
-            docker pull kingmoh/dashboard:latest
-            docker pull kingmoh/dashboard-backend:latest
-            docker pull kingmoh/nginx:latest
-            docker network create -d bridge fifa
-            docker rm -f frontend
-            docker run -d --name frontend -it -p 3000:3000 --network fifa  --restart always kingmoh/dashboard:latest
-            docker rm -f backend
-            docker run -d --name backend -it -p 9876:9876 --network fifa --restart always --env-file .env kingmoh/dashboard-backend:latest
-            docker rm -f nginx
-            docker run -d --name nginx -it -p 3050:80 --network fifa --restart always kingmoh/nginx:latest
+            . ./restart_services.sh
