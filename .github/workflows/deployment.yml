@@ -26,28 +26,28 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./twitter-streaming/nginx
-          push: false
+          push: true
           tags: kingmoh/nginx:latest
 
       - name: Build and push tweet producer
         uses: docker/build-push-action@v2
         with:
           context: ./twitter-streaming/producer
-          push: false
+          push: true
           tags: kingmoh/tweet_producer:latest
 
       - name: Build and push backend
         uses: docker/build-push-action@v2
         with:
           context: ./twitter-streaming/producer
-          push: false
+          push: true
           tags: kingmoh/dashboard-backend:latest
 
       - name: Build and push frontend
         uses: docker/build-push-action@v2
         with:
           context: ./twitter-streaming/producer
-          push: false
+          push: true
           tags: kingmoh/dashboard:latest
 
   push-files:
