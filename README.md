@@ -111,8 +111,33 @@ of the simple query below.
 
 # CI/CD 
 
-Coming soon 
+<img align='center' src='assets/action_screenshot.png' />
 
+**Figure 1**: Workflow Runs 
+
+## Overview
+
+Github actions is used to continuously test and deploy code changes. The application comprises of 6 microservices built from images deployed on [dockerhub](https://hub.docker.com/)
+
+## Pipeline 
+
+Code changes are first commited to the `dev` branch. After some inspection, the code is pushed to the `main` branch and this step triggers the CI/CD pipeline.
+
+- Firstly a simple test is run against the backend (`twitter-streaming/backend/test_main.py`)
+- Once this test passes, the deployment worflow is triggered. In this step, container images are built and deployed to dockerhub.
+- Lastly, relevant bash scripts are run on the production server.
+
+
+<br/>
+
+# Preparing for Production 
+
+The application was developed on an `arm64` architecture but the production system is `amd64`. The CI/CD pipeline handles this flawlessly - a ubuntu runner builds the images for the ubuntu production server. However, care must be taken when building images on the `arm64` architecture. Essentially, `Dockerfile` for backend service must build an image for the `arm64` architecture in development. In production, the image must be built in for `amd64`.
+
+Place all necessary `.env` and `services.sh` scripts in the right location to be triggered by the workflow.
+
+
+Finally, the url of the embedded dashboard must be changed from `localhost` to `server`.
 
 
 <br/><br/>
@@ -120,6 +145,7 @@ Coming soon
 
 # Project 2: ELT Pipeline for Keyword Frequency and Sentiment Analysis
 <img align='center' src='assets/project.png' />
+
 
 <br/>
 

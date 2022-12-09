@@ -1,6 +1,6 @@
 const Insights = () => {
     return (
-        <div>   
+        <div className="mt-8">   
             <h1 style={{ color: '#3F839D' }} className='font-bold font-mono underline text-5xl'>Insights</h1>
             <h2 className='text-2xl font-mono font-bold mt-5 mb-2 text-pink-800'>Highest Number of Tweets</h2>
             <p className='font-mono my-3'>

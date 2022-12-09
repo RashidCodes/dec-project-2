@@ -1,13 +1,13 @@
 name: Integration
 on:
   push:
-    branches: [ dev ]
+    branches: [ main ]
 
 jobs:
   integration:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout dev 
+      - name: checkout main 
         uses: actions/checkout@v3
       - name: Set up Python 3.7
         uses: actions/setup-python@v2

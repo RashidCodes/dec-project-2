@@ -15,7 +15,6 @@ import Code from './components/code';
 function App() {
 
   const [recentTweets, setRecentTweets] = useState([])
-  const [access_token, setAccessToken] = useState('')
 
   useEffect(() => {
 
@@ -83,8 +82,6 @@ function App() {
   return (
     <div className='container my-6 pt-6 font-mono'>  
 
-      <button>Some BUTTON</button>
-
       <Introduction />
       <div className='my-6' id='my-superset-container'></div>
       <Insights />
@@ -94,9 +91,7 @@ function App() {
       <Workflow />
       <CICD />
       <Code />
-
-
-  
+        
     </div>
 
     
