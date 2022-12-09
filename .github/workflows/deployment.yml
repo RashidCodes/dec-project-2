@@ -74,9 +74,16 @@ jobs:
             docker pull kingmoh/dashboard:latest
             docker pull kingmoh/dashboard-backend:latest
             docker pull kingmoh/nginx:latest
+
             docker network create -d bridge fifa
+
             docker run --name frontend -it -p 3000:3000 --network fifa -d --restart always kingmoh/dashboard:latest
+            if [[ $? -ne 0 ]]; then docker restart frontend; fi
+
             docker run --name backend -it -p 9876:9876 --network fifa -d --restart always \
             -e ${{ secrets.CLICKHOUSE_BASE_URL }} -e ${{ secrets.CLICKHOUSE_USER }} -e ${{ secrets.CLICKHOUSE_PASSWORD }} \
             kingmoh/dashboard-backend:latest
+            if [[ $? -ne 0 ]]; then docker restart backend; fi
+            
             docker run --name nginx -it -p 3050:80 --network fifa -d --restart always kingmoh/nginx:latest
+            if [[ $? -ne 0 ]]; then docker restart nginx; fi
