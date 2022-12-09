@@ -47,6 +47,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./twitter-streaming/frontend
+          file: ./twitter-streaming/frontend/Dockerfile2
           push: true
           tags: kingmoh/dashboard:latest
 
