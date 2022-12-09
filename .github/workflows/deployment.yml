@@ -3,11 +3,6 @@ on:
   push:
     branches: [ dev ]
 
-env:
-  CLICKHOUSE_BASE_URL: ${{ secrets.CLICKHOUSE_BASE_URL }} \ 
-  CLICKHOUSE_USER: ${{ secrets.CLICKHOUSE_USER }} \
-  CLICKHOUSE_PASSWORD: ${{ secrets.CLICKHOUSE_PASSWORD }}
-
 jobs:
   build-and-deploy-images:
     runs-on: ubuntu-latest
@@ -71,6 +66,10 @@ jobs:
           target: /home/ubuntu
       - name: restart services 
         uses: appleboy/ssh-action@master 
+        env:
+          CLICKHOUSE_BASE_URL: ${{ secrets.CLICKHOUSE_BASE_URL }} 
+          CLICKHOUSE_USER: ${{ secrets.CLICKHOUSE_USER }} 
+          CLICKHOUSE_PASSWORD: ${{ secrets.CLICKHOUSE_PASSWORD }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
