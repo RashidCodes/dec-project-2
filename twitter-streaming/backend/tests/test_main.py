@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
-from main import app
+import main
 
-client = TestClient(app)
+client = TestClient(main.app)
 
 def test_get_recent_events():
 
