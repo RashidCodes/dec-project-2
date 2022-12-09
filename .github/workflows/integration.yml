@@ -15,15 +15,15 @@ jobs:
           python-version: 3.7
       - name: Install dependencies 
         run: |
-          cd twitter-streaming/producer
-          pip install -r requirements.txt 
-      - name: set pythonpath
-        run: |
-          echo "PYTHONPATH=twitter-streaming/producer" >> $GITHUB_ENV
+          cd twitter-streaming/backend
+          pip install -r requirements.txt
+      # - name: set pythonpath
+      #   run: |
+      #     echo "PYTHONPATH=twitter-streaming/producer" >> $GITHUB_ENV
       - name: Test with pytest
         run: |
           echo "APP_ACCESS_TOKEN=${{ secrets.APP_ACCESS_TOKEN }}" >> $GITHUB_ENV
-          pytest twitter-streaming/producer
+          pytest test_main.py
 
 
     
