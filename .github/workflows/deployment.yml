@@ -39,14 +39,14 @@ jobs:
       - name: Build and push backend
         uses: docker/build-push-action@v2
         with:
-          context: ./twitter-streaming/producer
+          context: ./twitter-streaming/backend
           push: true
           tags: kingmoh/dashboard-backend:latest
 
       - name: Build and push frontend
         uses: docker/build-push-action@v2
         with:
-          context: ./twitter-streaming/producer
+          context: ./twitter-streaming/frontend
           push: true
           tags: kingmoh/dashboard:latest
 
