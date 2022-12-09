@@ -25,5 +25,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd $HOME/twitter-streaming
-            docker-compose pull
-            docker-compose restart 
+            bash restart_services.sh
