@@ -75,4 +75,5 @@ jobs:
             echo "Updating images"
             docker-compose pull
             docker network create -d bridge fifa
-            docker-compose up
+            docker-compose up -d
+            docker run --name frontend --rm -it -p 3000:3000 --network fifa -d kingmoh/dashboard
