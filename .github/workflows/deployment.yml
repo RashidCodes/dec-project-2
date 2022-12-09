@@ -75,9 +75,9 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            export CLICKHOUSE_BASE_URL=${CLICKHOUSE_BASE_URL}
-            export CLICKHOUSE_USER=${CLICKHOUSE_USER} 
-            export CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD}
+            export CLICKHOUSE_BASE_URL=$CLICKHOUSE_BASE_URL
+            export CLICKHOUSE_USER=$CLICKHOUSE_USER 
+            export CLICKHOUSE_PASSWORD=$CLICKHOUSE_PASSWORD
             docker pull kingmoh/dashboard:latest
             docker pull kingmoh/dashboard-backend:latest
             docker pull kingmoh/nginx:latest
