@@ -71,4 +71,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            cd $HOME/twitter-transformations
             . ./restart_services.sh
