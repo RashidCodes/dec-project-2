@@ -22,7 +22,8 @@ jobs:
           echo "PYTHONPATH=twitter-streaming/backend" >> $GITHUB_ENV
       - name: Test with pytest
         run: |
-          pytest
+          cd twitter-streaming/backend
+          pytest test_main.py
 
 
     
