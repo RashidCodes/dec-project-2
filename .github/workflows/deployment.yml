@@ -4,8 +4,9 @@ on:
     branches: [ dev ]
 
 env:
-  preprod_ecr: 211118166569.dkr.ecr.ap-southeast-2.amazonaws.com/adventureworks-dbt-preprod
-  prod_ecr: 211118166569.dkr.ecr.ap-southeast-2.amazonaws.com/adventureworks-dbt-prod
+  CLICKHOUSE_BASE_URL: ${{ secrets.CLICKHOUSE_BASE_URL }} \ 
+  CLICKHOUSE_USER: ${{ secrets.CLICKHOUSE_USER }} \
+  CLICKHOUSE_PASSWORD: ${{ secrets.CLICKHOUSE_PASSWORD }}
 
 jobs:
   build-and-deploy-images:
@@ -93,9 +94,9 @@ jobs:
               --name backend -it -p 9876:9876 \
               --network fifa \
               --restart always \
-              -e CLICKHOUSE_BASE_URL=${{ secrets.CLICKHOUSE_BASE_URL }} \ 
-              -e CLICKHOUSE_USER=${{ secrets.CLICKHOUSE_USER }} \
-              -e CLICKHOUSE_PASSWORD=${{ secrets.CLICKHOUSE_PASSWORD }} kingmoh/dashboard-backend:latest
+              -e CLICKHOUSE_BASE_URL=${{ env.CLICKHOUSE_BASE_URL }} \ 
+              -e CLICKHOUSE_USER=${{ env.CLICKHOUSE_USER }} \
+              -e CLICKHOUSE_PASSWORD=${{ env.CLICKHOUSE_PASSWORD }} kingmoh/dashboard-backend:latest
             if [[ $? -ne 0 ]]; then docker restart backend; fi
 
             docker run -d 
