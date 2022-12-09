@@ -71,9 +71,12 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd $HOME/twitter-streaming
-            echo "Updating images"
-            docker-compose pull
+            docker-compose pull kingmoh/dashboard:latest
+            docker-compose pull kingmoh/dashboard-backend:latest
+            docker-compose pull kingmoh/nginx:latest
             docker network create -d bridge fifa
-            docker-compose up -d
-            docker run --name frontend --rm -it -p 3000:3000 --network fifa -d kingmoh/dashboard
+            docker run --name frontend -it -p 3000:3000 --network fifa -d --restart always kingmoh/dashboard:latest
+            docker run --name backend -it -p 9876:9876 --network fifa -d --restart always \
+            -e ${{ secrets.CLICKHOUSE_BASE_URL }} -e ${{ secrets.CLICKHOUSE_USER }} -e ${{ secrets.CLICKHOUSE_PASSWORD }} \
+            kingmoh/dashboard-backend:latest
+            docker run --name nginx -it -p 3050:80 --network fifa -d --restart always kingmoh/nginx:latest
