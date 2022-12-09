@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres 
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+  superset:
+    image: kingmoh/superset:latest
+    container_name: superset
+    init: true
+    restart: always
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./superset:/superset
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - SQLALCHEMY_DATABASE_URI=${SQLALCHEMY_DATABASE_URI}
+      - SUPERSET_FEATURE_EMBEDDED_SUPERSET=${SUPERSET_FEATURE_EMBEDDED_SUPERSET}
+    depends_on:
+      - postgres
+
+networks:
+  default:
+    external:
+      name: fifa

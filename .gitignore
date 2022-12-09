@@ -17,5 +17,5 @@ airflow.cfg
 *snow_flake_rashid_pass
 **/profiles.yml
 vars.json
-autogit.sh
+*jaas_config.txt
 awscourse

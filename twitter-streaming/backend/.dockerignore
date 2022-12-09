@@ -1,0 +1,6 @@
+__pycache__
+.env 
+.gitignore 
+clickhouse*
+config.sh
+redis.yml

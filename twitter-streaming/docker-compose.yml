@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  nginx:
+    image: kingmoh/nginx:latest
+    restart: always
+    container_name: nginx 
+    ports:
+      - "3050:80"
+    depends_on:
+      - frontend
+
+  backend:
+    image: kingmoh/dashboard-backend:latest 
+    restart: always
+    container_name: backend
+    ports:
+      - "9876:9876"
+    volumes:
+      - ./backend:/src 
+    environment:
+      - CLICKHOUSE_BASE_URL=${CLICKHOUSE_BASE_URL}
+      - CLICKHOUSE_USER=${CLICKHOUSE_USER}
+      - CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD}
+
+  frontend:
+    image: kingmoh/dashboard:latest 
+    container_name: frontend 
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend 
+
+networks:
+  default:
+    external:
+      name: fifa
