@@ -40,10 +40,10 @@ def welcome():
 @app.get('/recent_events')
 def get_recent_events():
 
-    base_url = os.environ.get("CLICKHOUSE_BASE_URL")
+    base_url = os.getenv("CLICKHOUSE_BASE_URL")
     params = {
-        "user": os.environ.get("CLICKHOUSE_USER"),
-        "password": os.environ.get('CLICKHOUSE_PASSWORD'),
+        "user": os.getenv("CLICKHOUSE_USER"),
+        "password": os.getenv('CLICKHOUSE_PASSWORD'),
         "query": query
     }
 
