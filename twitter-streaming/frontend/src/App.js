@@ -66,23 +66,25 @@ function App() {
       console.error(`An error occurred: ${err}`)
     }
   }
-
+  
   embedDashboard({
     id: "966fdcd0-cb58-46c4-9aa3-ca38389d0209",
 
     // production
-    supersetDomain: "http://3.87.51.21:8088/",
+    supersetDomain: "http://3.87.51.21:8088",
 
     // local 
     // supersetDomain: "http://localhost:8088",
     mountPoint: document.getElementById("my-superset-container"),
     fetchGuestToken: () => fetchGuestTokenFromBackend()
-    
+
   })
   
 
   return (
     <div className='container my-6 pt-6 font-mono'>  
+
+      <button>Some BUTTON</button>
 
       <Introduction />
       <div className='my-6' id='my-superset-container'></div>
@@ -93,6 +95,8 @@ function App() {
       <Workflow />
       <CICD />
       <Code />
+
+
   
     </div>
 
