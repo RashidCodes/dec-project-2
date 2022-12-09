@@ -69,7 +69,9 @@ function App() {
 
   embedDashboard({
     id: "1314c7ab-4510-47ec-a21a-d91c045c1fe1",
-    supersetDomain: "http://localhost:8088",
+
+    // production
+    supersetDomain: "http://3.87.51.21:8088/",
 
     // local 
     // supersetDomain: "http://localhost:8088",
