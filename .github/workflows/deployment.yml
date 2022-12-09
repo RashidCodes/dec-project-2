@@ -75,13 +75,16 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            export CLICKHOUSE_BASE_URL=${CLICKHOUSE_BASE_URL}
+            export CLICKHOUSE_USER=${CLICKHOUSE_USER} 
+            export CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD}
             docker pull kingmoh/dashboard:latest
             docker pull kingmoh/dashboard-backend:latest
             docker pull kingmoh/nginx:latest
             docker network create -d bridge fifa
             docker run -d --name frontend -it -p 3000:3000 --network fifa  --restart always kingmoh/dashboard:latest
             if [[ $? -ne 0 ]]; then docker restart frontend; fi
-            docker run -d --name backend -it -p 9876:9876 --network fifa --restart always -e CLICKHOUSE_BASE_URL="${{ secrets.CLICKHOUSE_BASE_URL }}" -e CLICKHOUSE_USER=${{ secrets.CLICKHOUSE_USER }} -e CLICKHOUSE_PASSWORD="${{ secrets.CLICKHOUSE_PASSWORD }}" kingmoh/dashboard-backend:latest
+            docker run -d --name backend -it -p 9876:9876 --network fifa --restart always -e CLICKHOUSE_BASE_URL=${CLICKHOUSE_BASE_URL} -e CLICKHOUSE_USER=${CLICKHOUSE_USER} -e CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD} kingmoh/dashboard-backend:latest
             if [[ $? -ne 0 ]]; then docker restart backend; fi
             docker run -d --name nginx -it -p 3050:80 --network fifa --restart always kingmoh/nginx:latest
             if [[ $? -ne 0 ]]; then docker restart nginx; fi
