@@ -51,6 +51,7 @@ jobs:
           tags: kingmoh/dashboard:latest
 
   push-files:
+    needs: build-and-deploy-images
     runs-on: ubuntu-latest 
     steps:
       - name: checkout dev 
