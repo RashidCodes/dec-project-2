@@ -163,7 +163,7 @@ Code changes are commited to the `dev` branch. After some inspection, the code i
 
 ## Production Dashboard
 
-- Finally, the url of the embedded dashboard must be changed from `localhost` to the  url of superset on the production server.
+- Finally, the host of the embedded dashboard must be changed from `localhost` to the production server.
 
 
 <br/>
