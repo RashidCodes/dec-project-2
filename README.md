@@ -29,7 +29,7 @@ use the data engineering skills/knowledge gained from the course to build a very
 the twitter activity of other fans. The dashboard below shows the twitter activity.
 
 
-<img src='assets/tweets-about-the-2022-fifa-world-cup-2022-12-09T00-40-25.041Z.jpg' />
+<img src='assets/tweets-about-the-2022-fifa-world-cup-2022-12-09T00-40-25.041Z.jpg' /> <br/>
 
 <br/>
 
@@ -48,8 +48,7 @@ the quarter finals. The fixtures on December 7th were as follows:
 - Morocco vs Spain
 
 
-In my opinion, the best fixture was <span className='italic'>Brazil vs South Korea</span>. The brazilians were a 
-ton of fun to watch.
+In my opinion, the best fixture was <span className='italic'>Brazil vs South Korea</span>. The brazilians played brilliant soccer.
 
 
 <br/>
@@ -74,6 +73,9 @@ another nation might be tweeting more aggressively.
 | React | Application Frontend 
 | ClickHouse | Event Processing 
 | Superset | Data Visualisation
+| Insomnia | Endpoint testing
+
+**Table 1**: *Tools and Tech*
 
 <br/>
 
@@ -86,17 +88,16 @@ another nation might be tweeting more aggressively.
 
 <br/>
 
-# Workflow
+## Workflow
 
 - The twitter producer loads a stream of tweets into a Kafka cluster hosted on [confluent](https://www.confluent.io/).
 
 - Clickhouse consumes the twitter streams using a confluent HTTP Connector
 
-- The python backend connects the React frontend (this webpage) to ClickHouse. The list of recent tweets above is the resultset
-of the simple query below.
+- The python backend connects the React frontend (this webpage) to ClickHouse. The list of recent tweets above is the resultset of the simple query below.
 
     ```sql
-    select top 10 * 
+    select top 3 * 
     from tweets 
     where username <> '' 
     order by created_at desc format JSON
@@ -117,15 +118,17 @@ of the simple query below.
 
 ## Overview
 
-Github actions is used to continuously test and deploy code changes. The application comprises of 6 microservices built from images deployed on [dockerhub](https://hub.docker.com/)
+Github actions is used to continuously test and deploy code changes. The application comprises of 6 microservices built from images deployed on [dockerhub](https://hub.docker.com/). The pipeline is described in the next section.
 
 ## Pipeline 
 
 Code changes are first commited to the `dev` branch. After some inspection, the code is pushed to the `main` branch and this step triggers the CI/CD pipeline.
 
-- Firstly a simple test is run against the backend (`twitter-streaming/backend/test_main.py`)
-- Once this test passes, the deployment worflow is triggered. In this step, container images are built and deployed to dockerhub.
-- Lastly, relevant bash scripts are run on the production server.
+- Firstly a simple test is run against the backend (`twitter-streaming/backend/test_main.py`). The test checks whether one of the endpoints works as expected.
+- Once the test passes, the deployment worflow is triggered. In this step, container images are built on a ubuntu runner and deployed to dockerhub. The `--platform` option the `Dockerfile` has to be removed completely or set to `linux/amd64` - the architecture of the production server.
+- Lastly, `restart_services.sh` is run on the production server to: 
+    - Pull the latest images 
+    - Restart the containers with the updated images
 
 
 <br/>
