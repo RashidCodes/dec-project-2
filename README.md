@@ -416,9 +416,6 @@ Few connections were created in this project but as the airbyte connections grow
 
 
 
-
-
-
 <br/><br/>
 
 # Appendices and References
@@ -437,3 +434,19 @@ https://docs.getdbt.com/guides/best-practices/how-we-structure/2-staging
 ## Appendix C
 ### Current_timestamps and Load_times in Snowflake 
 https://docs.snowflake.com/en/user-guide/data-load-snowpipe-ts.html#load-times-inserted-using-current-timestamp-earlier-than-load-time-values-in-copy-history-view
+
+## Appendix D
+### TailwindCSS 
+https://v1.tailwindcss.com/docs/padding
+
+### Embedding Superset dashboards in a React application 
+https://medium.com/@khushbu.adav/embedding-superset-dashboards-in-your-react-application-7f282e3dbd88#:~:text=The%20Embedded%20SDK%20allows%20you,in%20to%20the%20Host%20App.
+
+### Executing commands over SSH with Github Actions 
+https://nbailey.ca/post/github-actions-ssh/
+
+### SCP for Github Actions 
+https://github.com/marketplace/actions/scp-files
+
+### Continuous Integration on Github with FastAPI and pytest
+https://retz.dev/blog/continuous-integration-github-fastapi-and-pytest

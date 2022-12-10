@@ -67,6 +67,14 @@ const Tools = () => {
                             Data Visualisation
                             </td>
                         </tr>
+                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Insomnia
+                            </th>
+                            <td class="py-4 px-6">
+                            Endpoint testing
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
