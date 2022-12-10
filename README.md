@@ -28,6 +28,8 @@ I'm a very big fan of the game. I'm also very passionate about data engineering 
 use the data engineering skills/knowledge gained from the course to build a very simple streaming application that showcases 
 the twitter activity of other fans. The dashboard below shows the twitter activity.
 
+The production dashboard can be found [here]('http://3.87.51.21:3050/')
+
 
 <img src='assets/tweets-about-the-2022-fifa-world-cup-2022-12-09T00-40-25.041Z.jpg' /> <br/>
 
