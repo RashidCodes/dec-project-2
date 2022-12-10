@@ -15,7 +15,6 @@ import Code from './components/code';
 function App() {
 
   const [recentTweets, setRecentTweets] = useState([])
-  const [access_token, setAccessToken] = useState('')
 
   useEffect(() => {
 
@@ -54,9 +53,8 @@ function App() {
   const fetchGuestTokenFromBackend = async () => {
     try {
       const response = await axios({
-        method: 'post',
-        url: '/backend/access_guest',
-        data: JSON.stringify({ token: access_token }),
+        method: 'get',
+        url: '/backend/access',
         headers: {
           'Content-Type': 'application/json'
         }
@@ -66,16 +64,18 @@ function App() {
       console.error(`An error occurred: ${err}`)
     }
   }
-
+  
   embedDashboard({
-    id: "1314c7ab-4510-47ec-a21a-d91c045c1fe1",
-    supersetDomain: "http://localhost:8088",
+    id: "966fdcd0-cb58-46c4-9aa3-ca38389d0209",
+
+    // production
+    supersetDomain: "http://3.87.51.21:8088",
 
     // local 
     // supersetDomain: "http://localhost:8088",
     mountPoint: document.getElementById("my-superset-container"),
-    fetchGuestToken: () => fetchGuestTokenFromBackend(),
-    // dashboardUiConfig: { hideTitle: true },
+    fetchGuestToken: () => fetchGuestTokenFromBackend()
+
   })
   
 
@@ -91,7 +91,7 @@ function App() {
       <Workflow />
       <CICD />
       <Code />
-  
+        
     </div>
 
     

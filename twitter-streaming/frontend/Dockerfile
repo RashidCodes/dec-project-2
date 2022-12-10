@@ -1,14 +1,15 @@
-FROM node:alpine 
+FROM --platform=linux/amd64 node:alpine 
 
 WORKDIR /app 
 
-COPY package.json ./ 
+COPY package.json ./
 
-COPY package-lock.json ./ 
+COPY package-lock.json ./
 
-COPY . .
+COPY . ./
 
-RUN npm i 
+RUN npm install
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
+
 

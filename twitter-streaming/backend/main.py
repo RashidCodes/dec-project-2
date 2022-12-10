@@ -6,6 +6,7 @@ import logging
 import json
 import os 
 
+
 # Configure logging
 logging.basicConfig(format='%(levelname)s:    %(message)s', level=logging.DEBUG)
 
@@ -39,10 +40,10 @@ def welcome():
 @app.get('/recent_events')
 def get_recent_events():
 
-    base_url = os.environ.get("CLICKHOUSE_BASE_URL")
+    base_url = os.getenv("CLICKHOUSE_BASE_URL")
     params = {
-        "user": os.environ.get("CLICKHOUSE_USER"),
-        "password": os.environ.get('CLICKHOUSE_PASSWORD'),
+        "user": os.getenv("CLICKHOUSE_USER"),
+        "password": os.getenv('CLICKHOUSE_PASSWORD'),
         "query": query
     }
 
@@ -79,37 +80,8 @@ def make_request():
     
 @app.get('/access')
 def get_access_token():
-    results = make_request()
-
-    return results
-
-
-@app.post('/access_guest')
-def get_guest_token(token: Token):
-
-    base_url = 'http://superset:8088/api/v1/security/guest_token'
-    payload = {
-        "user": {
-            "username": "worldcupuser", 
-            "first_name": "worldcup", 
-            "last_name": "worldcup"
-        }, 
-        "resources":[
-            {
-                "type": "dashboard", 
-                "id": "98063d44-f0e1-4650-a638-d52549f75323"
-            }
-        ],
-        "rls": []
+    data = {
+	    "token": os.getenv('GUEST_TOKEN')
     }
 
-    headers = {
-        "Authorization": f"Bearer {token.token}"
-    }
-
-    response = requests.post(base_url, json=payload, headers=headers)
-    
-    # if response.status_code != 200:
-    #     raise Exception('Guest token was not generated')
-
-    return response.json()
+    return data

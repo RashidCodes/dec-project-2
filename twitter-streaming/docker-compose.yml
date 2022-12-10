@@ -26,6 +26,7 @@ services:
     image: kingmoh/dashboard:latest 
     container_name: frontend 
     restart: always
+    platform: linux
     ports:
       - "3000:3000"
     volumes:
