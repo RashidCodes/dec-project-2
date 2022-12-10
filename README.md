@@ -10,10 +10,13 @@
 
 # Table of Content 
 - [Introduction](#first-introduction)
-- [Insights](#insights)
+- [Insights](#basic-analytics)
 - [Tools](#tools)
 - [Architecture](#architecture)
 - [Workflow](#workflow)
+- [CICD](#cicd)
+- [Preparing for Production](#preparing-for-production)
+- [Utilities](#utilities)
 
 <br/><br/>
 
