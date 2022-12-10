@@ -10,10 +10,13 @@
 
 # Table of Content 
 - [Introduction](#first-introduction)
-- [Insights](#insights)
+- [Insights](#basic-analytics)
 - [Tools](#tools)
 - [Architecture](#architecture)
 - [Workflow](#workflow)
+- [CICD](#cicd)
+- [Preparing for Production](#preparing-for-production)
+- [Utilities](#utilities)
 
 <br/><br/>
 
@@ -32,6 +35,8 @@ The production dashboard can be found <a href='http://3.87.51.21:3050/'>here</a>
 
 
 <img src='assets/dashboard.jpg' /> <br/>
+
+**Figure 1**: *Application Dashboard* 
 
 <br/>
 
@@ -67,6 +72,8 @@ another nation might be tweeting more aggressively.
 
 <img align='center' src='assets/tools.png'> <br/>
 
+**Figure 2**: *Tools Used* 
+
 | Tool | Usage 
 |-------| --------
 | EC2 | Hosting the entire application 
@@ -85,7 +92,7 @@ another nation might be tweeting more aggressively.
 
 <img src='assets/streaming_project.png' />
 
-**Figure 2:** *Microservice Architecture*
+**Figure 3:** *Microservice Architecture*
 
 
 <br/>
@@ -116,13 +123,17 @@ another nation might be tweeting more aggressively.
 
 <img align='center' src='assets/action_screenshot.png' />
 
-**Figure 1**: Workflow Runs 
+**Figure 4**: Workflow Runs 
 
 ## Overview
 
 Github actions is used to continuously test and deploy code changes. The application comprises of 6 microservices built from images deployed on [dockerhub](https://hub.docker.com/). The pipeline is described in the next section.
 
 ## Pipeline 
+
+<img src='assets/cicd_pipeline.png' />
+
+**Figure 5**: *CICD Pipeline*
 
 Code changes are commited to the `dev` branch. After some inspection, the code is pushed to the `main` branch and this step triggers the CI/CD pipeline - broken down in the following steps.
 
@@ -155,7 +166,7 @@ Code changes are commited to the `dev` branch. After some inspection, the code i
 
 <br/>
 
-# Utlities 
+# Utilities 
 
 The `autogit.sh` script speeds up the deployment of code changes
 
@@ -189,6 +200,16 @@ Branch 'dev' set up to track remote branch 'dev' from 'origin'.
 
 Successfully pushed your awesome changes!
 ```
+
+<br/>
+
+# Project Kanban
+
+The project was successful because tasks were broken into small sub-tasks.
+
+<img src='assets/capstone_kanban.png' /> <br/>
+
+**Figure 6**: *Capstone Kanban*
 
 <br/><br/><br/>
 

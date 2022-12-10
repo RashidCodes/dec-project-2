@@ -1,4 +1,5 @@
 import cicd from '../assets/action_screenshot.png';
+import cicd_pipeline from '../assets/cicd_pipeline.png';
 
 const CICD = () => {
     return (
@@ -14,6 +15,7 @@ const CICD = () => {
             </p>
 
             <h2 className='font-bold font-mono mt-10 mb-5 text-pink-800 underline text-3xl'>Pipeline</h2>
+            <img className='mb-5' src={cicd_pipeline} />
             <p>
                 Code changes are commited to the <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>dev</span> branch. 
                 After some inspection, the code is pushed to the <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>main</span> branch and 
