@@ -148,7 +148,7 @@ Code changes are commited to the `dev` branch. After some inspection, the code i
 
 - All production scripts have to be version controlled and managed very carefully. For example, the `.env` file should never the see the light of day in the `git` staging area. 
 
-# Production Dashboard
+## Production Dashboard
 
 - Finally, the url of the embedded dashboard must be changed from `localhost` to the  url of superset on the production server.
 
