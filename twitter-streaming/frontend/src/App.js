@@ -33,23 +33,6 @@ function App() {
   }, [])
 
 
-  useEffect(() => {
-
-    // get the most recent tweets
-    const init = async () => {
-      try {
-        const response = await axios.get('/backend/access')
-        setAccessToken(response.data.access_token)
-
-      } catch (error) {
-        console.error(`An error occurred: ${error}`)
-      }
-    }
-
-    init()
-  }, [])
-
-
   const fetchGuestTokenFromBackend = async () => {
     try {
       const response = await axios({
