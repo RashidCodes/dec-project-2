@@ -137,10 +137,18 @@ Code changes are commited to the `dev` branch. After some inspection, the code i
 
 # Preparing for Production 
 
+## Storage 
+- Ensure that there's enough storage on the server otherwise the latest images will not be pulled.
+
 ## Processor Architecture
+
 - The application was developed on an `arm64` architecture but the production system is `amd64`. The CI/CD pipeline handles this flawlessly because a ubuntu runner builds the images for the ubuntu production server. However, care must be taken when building images on the `arm64` architecture. During development, then `Dockerfile` for backend service had to be built for the `arm64` architecture however in production, the image had to be built for `amd64`. 
 
+## Version Control
+
 - All production scripts have to be version controlled and managed very carefully. For example, the `.env` file should never the see the light of day in the `git` staging area. 
+
+# Production Dashboard
 
 - Finally, the url of the embedded dashboard must be changed from `localhost` to the  url of superset on the production server.
 
