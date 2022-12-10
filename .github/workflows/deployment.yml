@@ -77,10 +77,14 @@ jobs:
 
   send-mail:
     # needs: push-files 
-    with:
-      server_address: smtp.gmail.com
-      server_port: 465
-      subject: Deployment results
-      to: rashidmincan@gmail.com
-      from: RashidCodes/dec2-project-2
-      body: Build job of ${{github.repository}} completed successfully!
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          subject: Deployment results
+          to: rashidmincan@gmail.com
+          from: RashidCodes/dec2-project-2
+          body: Build job of ${{github.repository}} completed successfully!
