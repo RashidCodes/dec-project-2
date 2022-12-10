@@ -33,7 +33,7 @@ the twitter activity of other fans. The dashboard below shows the twitter activi
 
 <br/>
 
-# Insights
+# Basic Analytics
 
 ## Highest Number of Tweets
 
@@ -122,10 +122,10 @@ Github actions is used to continuously test and deploy code changes. The applica
 
 ## Pipeline 
 
-Code changes are first commited to the `dev` branch. After some inspection, the code is pushed to the `main` branch and this step triggers the CI/CD pipeline.
+Code changes are commited to the `dev` branch. After some inspection, the code is pushed to the `main` branch and this step triggers the CI/CD pipeline - broken down in the following steps.
 
 - Firstly a simple test is run against the backend (`twitter-streaming/backend/test_main.py`). The test checks whether one of the endpoints works as expected.
-- Once the test passes, the deployment worflow is triggered. In this step, container images are built on a ubuntu runner and deployed to dockerhub. The `--platform` option the `Dockerfile` has to be removed completely or set to `linux/amd64` - the architecture of the production server.
+- Once the test passes, the `deployment` worflow is triggered. In this step, container images are built on a ubuntu runner and deployed to dockerhub. The `--platform` option in the `Dockerfile` has to be removed completely or set to `linux/amd64` - the architecture of the production server.
 - Lastly, `restart_services.sh` is run on the production server to: 
     - Pull the latest images 
     - Restart the containers with the updated images
@@ -135,15 +135,26 @@ Code changes are first commited to the `dev` branch. After some inspection, the 
 
 # Preparing for Production 
 
-# Processor Architecture
-- The application was developed on an `arm64` architecture but the production system is `amd64`. The CI/CD pipeline handles this flawlessly because a ubuntu runner builds the images for the ubuntu production server. However, care must be taken when building images on the `arm64` architecture. Essentially, `Dockerfile` for backend service must build an image for the `arm64` architecture in development. In production, the image must be built in for `amd64`. 
+## Processor Architecture
+- The application was developed on an `arm64` architecture but the production system is `amd64`. The CI/CD pipeline handles this flawlessly because a ubuntu runner builds the images for the ubuntu production server. However, care must be taken when building images on the `arm64` architecture. During development, then `Dockerfile` for backend service had to be built for the `arm64` architecture however in production, the image had to be built for `amd64`. 
 
 - All production scripts have to be version controlled and managed very carefully. For example, the `.env` file should never the see the light of day in the `git` staging area. 
 
-- Finally, the url of the embedded dashboard must be changed from `localhost` to `server`.
+- Finally, the url of the embedded dashboard must be changed from `localhost` to the  url of superset on the production server.
 
 
-<br/><br/>
+<br/>
+
+# Utlities 
+
+The `autogit.sh` script speeds up the deployment of code changes
+
+```bash 
+# run autogit to see the usage
+autogit dev "Finished project"
+```
+
+<br/><br/><br/>
 
 
 # Project 2: ELT Pipeline for Keyword Frequency and Sentiment Analysis
