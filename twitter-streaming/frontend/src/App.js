@@ -10,6 +10,7 @@ import Insights from './components/insights';
 import Workflow from './components/workflow';
 import CICD from './components/cicd';
 import Code from './components/code';
+import PreProd from './components/preprod';
 
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
       <Architecture />
       <Workflow />
       <CICD />
+      <PreProd />
       <Code />
         
     </div>

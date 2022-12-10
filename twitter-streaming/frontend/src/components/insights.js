@@ -1,19 +1,20 @@
 const Insights = () => {
     return (
         <div className="mt-8">   
-            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono underline text-5xl'>Insights</h1>
+            <h1 style={{ color: '#3F839D' }} className='font-bold mb-10 font-mono underline text-5xl'>Basic Analytics</h1>
             <h2 className='text-2xl font-mono font-bold mt-5 mb-2 text-pink-800'>Highest Number of Tweets</h2>
             <p className='font-mono my-3'>
                 The highest number of tweets was recorded on 7th December, 2022. 
                 On this day, teams that had qualified for the round of 16 battled for qualification into 
                 the quarter finals. The fixtures on December 7th were as follows:
             </p>
+            <div className="ml-6 mb-4">
+                <li>Japan vs Crotia</li>
+                <li>Brazil vs South Korea</li>
+                <li>Portugal vs Switzerland</li>
+                <li>Morocco vs Spain</li>
+            </div>
             
-            <li>Japan vs Crotia</li>
-            <li>Brazil vs South Korea</li>
-            <li>Portugal vs Switzerland</li>
-            <li>Morocco vs Spain</li>
-
             <p className='font-mono'>
                 In my opinion, the best fixture was <span className='italic'>Brazil vs South Korea</span>. The brazilians were a 
                 ton of fun to watch.

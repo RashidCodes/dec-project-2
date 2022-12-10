@@ -31,7 +31,7 @@ the twitter activity of other fans. The dashboard below shows the twitter activi
 The production dashboard can be found <a href='http://3.87.51.21:3050/'>here</a>
 
 
-<img src='assets/tweets-about-the-2022-fifa-world-cup-2022-12-09T00-40-25.041Z.jpg' /> <br/>
+<img src='assets/dashboard.jpg' /> <br/>
 
 <br/>
 
@@ -162,6 +162,32 @@ The `autogit.sh` script speeds up the deployment of code changes
 ```bash 
 # run autogit to see the usage
 autogit dev "Finished project"
+```
+
+<br/>
+
+Output
+
+```bash 
+Successfully added changes to the staging area.
+
+[dev 3ad99f1] Change deployment branch to main
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Successfully commited your changes.
+
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 451 bytes | 451.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:RashidCodes/dec-project-2.git
+   744cbec..3ad99f1  dev -> dev
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+
+Successfully pushed your awesome changes!
 ```
 
 <br/><br/><br/>
@@ -416,9 +442,6 @@ Few connections were created in this project but as the airbyte connections grow
 
 
 
-
-
-
 <br/><br/>
 
 # Appendices and References
@@ -437,3 +460,19 @@ https://docs.getdbt.com/guides/best-practices/how-we-structure/2-staging
 ## Appendix C
 ### Current_timestamps and Load_times in Snowflake 
 https://docs.snowflake.com/en/user-guide/data-load-snowpipe-ts.html#load-times-inserted-using-current-timestamp-earlier-than-load-time-values-in-copy-history-view
+
+## Appendix D
+### TailwindCSS 
+https://v1.tailwindcss.com/docs/padding
+
+### Embedding Superset dashboards in a React application 
+https://medium.com/@khushbu.adav/embedding-superset-dashboards-in-your-react-application-7f282e3dbd88#:~:text=The%20Embedded%20SDK%20allows%20you,in%20to%20the%20Host%20App.
+
+### Executing commands over SSH with Github Actions 
+https://nbailey.ca/post/github-actions-ssh/
+
+### SCP for Github Actions 
+https://github.com/marketplace/actions/scp-files
+
+### Continuous Integration on Github with FastAPI and pytest
+https://retz.dev/blog/continuous-integration-github-fastapi-and-pytest

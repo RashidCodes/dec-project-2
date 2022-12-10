@@ -6,7 +6,7 @@ const Code = () => {
                 The entire application is hosted on GitHub and can be found <a className="underline" href='https://github.com/RashidCodes/dec-project-2'>here.</a>
             </p>
             <h1 className='font-bold text-right mt-20 font-mono'>By Rashid Mohammed</h1> 
-            <h1 className='font-bold text-right font-mono'>Dec2 Capstone</h1> 
+            <h1 className='font-bold text-right font-mono'>December 10th, 2022</h1> 
         </div>
     )
 }
