@@ -164,6 +164,32 @@ The `autogit.sh` script speeds up the deployment of code changes
 autogit dev "Finished project"
 ```
 
+<br/>
+
+Output
+
+```bash 
+Successfully added changes to the staging area.
+
+[dev 3ad99f1] Change deployment branch to main
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Successfully commited your changes.
+
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 451 bytes | 451.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:RashidCodes/dec-project-2.git
+   744cbec..3ad99f1  dev -> dev
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+
+Successfully pushed your awesome changes!
+```
+
 <br/><br/><br/>
 
 
