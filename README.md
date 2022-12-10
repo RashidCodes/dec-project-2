@@ -132,12 +132,12 @@ Code changes are first commited to the `dev` branch. After some inspection, the 
 
 # Preparing for Production 
 
-The application was developed on an `arm64` architecture but the production system is `amd64`. The CI/CD pipeline handles this flawlessly - a ubuntu runner builds the images for the ubuntu production server. However, care must be taken when building images on the `arm64` architecture. Essentially, `Dockerfile` for backend service must build an image for the `arm64` architecture in development. In production, the image must be built in for `amd64`.
+# Processor Architecture
+- The application was developed on an `arm64` architecture but the production system is `amd64`. The CI/CD pipeline handles this flawlessly because a ubuntu runner builds the images for the ubuntu production server. However, care must be taken when building images on the `arm64` architecture. Essentially, `Dockerfile` for backend service must build an image for the `arm64` architecture in development. In production, the image must be built in for `amd64`. 
 
-Place all necessary `.env` and `services.sh` scripts in the right location to be triggered by the workflow.
+- All production scripts have to be version controlled and managed very carefully. For example, the `.env` file should never the see the light of day in the `git` staging area. 
 
-
-Finally, the url of the embedded dashboard must be changed from `localhost` to `server`.
+- Finally, the url of the embedded dashboard must be changed from `localhost` to `server`.
 
 
 <br/><br/>
