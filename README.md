@@ -155,7 +155,7 @@ Code changes are commited to the `dev` branch. After some inspection, the code i
 
 <br/>
 
-# Utlities 
+# Utilities 
 
 The `autogit.sh` script speeds up the deployment of code changes
 
