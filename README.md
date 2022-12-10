@@ -205,7 +205,7 @@ Successfully pushed your awesome changes!
 
 The project was successful because tasks were broken into small sub-tasks.
 
-<img src='assets/capstone_kanban.jpg' /> <br/>
+<img src='assets/capstone_kanban.png' /> <br/>
 
 **Figure 5**: *Capstone Kanban*
 
