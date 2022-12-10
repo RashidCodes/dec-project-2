@@ -139,10 +139,12 @@ Code changes are commited to the `dev` branch. After some inspection, the code i
 
 - Firstly a simple test is run against the backend (`twitter-streaming/backend/test_main.py`). The test checks whether one of the endpoints works as expected.
 - Once the test passes, the `deployment` worflow is triggered. In this step, container images are built on a ubuntu runner and deployed to dockerhub. The `--platform` option in the `Dockerfile` has to be removed completely or set to `linux/amd64` - the architecture of the production server.
-- Lastly, `restart_services.sh` is run on the production server to: 
+- A `restart_services.sh` is run on the production server to: 
     - Pull the latest images 
     - Restart the containers with the updated images
+- Lastly, an email about the status of the job is sent to my inbox.
 
+<img src='assets/status.png' />
 
 <br/>
 
