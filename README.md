@@ -132,6 +132,7 @@ Github actions is used to continuously test and deploy code changes. The applica
 ## Pipeline 
 
 <img src='assets/cicd_pipeline.png' />
+
 **Figure 5**: *CICD Pipeline*
 
 Code changes are commited to the `dev` branch. After some inspection, the code is pushed to the `main` branch and this step triggers the CI/CD pipeline - broken down in the following steps.
