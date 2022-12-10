@@ -31,7 +31,7 @@ the twitter activity of other fans. The dashboard below shows the twitter activi
 The production dashboard can be found <a href='http://3.87.51.21:3050/'>here</a>
 
 
-<img src='assets/tweets-about-the-2022-fifa-world-cup-2022-12-09T00-40-25.041Z.jpg' /> <br/>
+<img src='assets/dashboard.jpg' /> <br/>
 
 <br/>
 
