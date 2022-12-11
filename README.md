@@ -23,7 +23,7 @@
 <h1 id='first-introduction'>Deliverables</h1>
 
 - <a href='http://3.87.51.21:3050/'>Project Web App</a>
-- <a href=''>Superset Dashboard</a>
+- <a href='http://3.87.51.21:8088/superset/dashboard/1/?native_filters_key=MDoAX7lLXHPXWKwnu7q4YrFsSJsHu1jXmsuiIMkazGrvD3X3tZfVAi7EBaBZuGU0'>Superset Dashboard</a>
 - CICD Pipeline
 - Tweet Producer
 
