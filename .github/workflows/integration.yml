@@ -19,7 +19,7 @@ jobs:
           python-version: 3.7
       - name: Install dependencies 
         run: |
-          cd twitter-streaming
+          cd twitter-streaming/backend
           pip install -r requirements.txt
       - name: Test endpoints
         run: |
