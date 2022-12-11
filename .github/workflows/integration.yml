@@ -21,9 +21,6 @@ jobs:
         run: |
           cd twitter-streaming
           pip install -r requirements.txt
-      - name: Set Python path 
-        run: |
-          echo "PYTHONPATH=twitter-streaming/backend" >> $GITHUB_ENV
       - name: Run dbt models
         run: |
           cd twitter-streaming/transformations
