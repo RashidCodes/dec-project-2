@@ -1,7 +1,7 @@
 name: Deployment
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
 
 jobs:
   build-and-deploy-images:
