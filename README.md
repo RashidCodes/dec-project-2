@@ -43,7 +43,7 @@ the twitter activity of other fans. More precisely, I wanted to know the nation 
 The production dashboard can be found <a href='http://3.87.51.21:3050/'>here</a>
 
 
-<img src='assets/dashboard.jpg' /> <br/>
+<img src='assets/dashboards.jpg' /> <br/>
 
 **Figure 1**: *Application Dashboard* 
 
