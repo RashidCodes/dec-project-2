@@ -20,6 +20,14 @@
 
 <br/><br/>
 
+<h1 id='first-introduction'>Deliverables</h1>
+
+- <a href='http://3.87.51.21:3050/'>Project Web App</a>
+- <a href=''>Superset Dashboard</a>
+- CICD Pipeline
+- Tweet Producer
+
+<br/>
 
 <h1 id='first-introduction'>Introduction</h1>
 

@@ -17,6 +17,14 @@ create table tweets (
 ```
 <br/>
 
+# Start Producer 
+
+```bash 
+docker run --name tweet_producer --rm -it --env-file .env kingmoh/tweet_producer
+```
+
+<br/>
+
 # Useful Docker commands 
 
 ```bash
