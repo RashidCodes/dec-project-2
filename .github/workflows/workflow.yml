@@ -84,7 +84,6 @@ jobs:
           cd twitter-streaming/transformations
           dbt run --target prod
           
-
   restart-services:
     needs: deployment
     runs-on: ubuntu-latest 

@@ -147,7 +147,7 @@ Github actions is used to continuously test and deploy code changes. The applica
 Code changes are commited to the `dev` branch. After some inspection, the code is pushed to the `main` branch and this step triggers the CI/CD pipeline - broken down in the following steps.
 
 - Firstly a simple test is run against the backend (`twitter-streaming/backend/test_main.py`). The test checks whether one of the endpoints works as expected.
-- Once the test passes, the `deployment` worflow is triggered. In this step, container images are built on a ubuntu runner and deployed to dockerhub. The `--platform` option in the `Dockerfile` has to be removed completely or set to `linux/amd64` - the architecture of the production server.
+- Once the test passes, the `deployment` worflow is triggered. In this step, container images are built on a ubuntu runner and deployed to dockerhub. The `--platform` option in the `Dockerfile` has to be removed completely or set to `linux/amd64` - the architecture of the production server. Additionally, the dbt models are created in Clickhouse. The content of this model is shown in the table on the dashboard.
 - A `restart_services.sh` is run on the production server to: 
     - Pull the latest images 
     - Restart the containers with the updated images
