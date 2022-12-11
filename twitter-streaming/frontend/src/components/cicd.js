@@ -1,5 +1,7 @@
 import cicd from '../assets/action_screenshot.png';
 import cicd_pipeline from '../assets/cicd_pipeline.png';
+import status from '../assets/status.png';
+
 
 const CICD = () => {
     return (
@@ -29,13 +31,16 @@ const CICD = () => {
                 <li className='my-3'>
                     Once the test passes, the <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>deployment</span> worflow is triggered. In this step, container images are built on a 
                     ubuntu runner and deployed to dockerhub. The <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>--platform</span> option in the <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>Dockerfile</span> has to be removed completely 
-                    or set to <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>linux/amd64</span> - the architecture of the production server.
+                    or set to <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>linux/amd64</span> - the architecture of the production server. Additionally, the dbt models are created in <span className='font-bold'>Clickhouse</span>. The content of this model 
+                    is shown in the table on the dashboard.
                 </li>
-                <li className='my-3'>Lastly, <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>restart_services.sh</span> is run on the production server to:</li>
+                <li className='my-3'>A <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>restart_services.sh</span> script is run on the production server to:</li>
                 <div className='ml-9'>
                     <li>Pull the latest images</li>
                     <li>Restart the containers with the updated images</li>
                 </div>
+                <li className='my-3'>Lastly, an email about the status of the workflow is sent to my inbox.</li>
+                <img  src={status} />
                 
             </div>
             
