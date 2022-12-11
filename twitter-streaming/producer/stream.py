@@ -3,6 +3,7 @@ import os
 import json
 import utilities.ccloud_lib as ccloud_lib
 import logging
+import sys
 from utilities.process_streams import process_streams
 from confluent_kafka.cimpl import Producer
 
@@ -130,24 +131,30 @@ def stream_events() -> None:
         "expansions": "author_id"
     }
 
-    response = requests.get(base_url, params=params, stream=True, auth=bearer_oauth)
+    try:
 
-    for response_line in response.iter_lines():
-        if response_line:
-            json_response = json.loads(response_line)
-            
-            try:
-                tweet_data = json_response.get('data')
-                processed = process_streams(json.dumps(tweet_data))
-            except TypeError as err:
-                logging.error(f"An error occurred while processing stream: {err}")
-                continue
-            else:
-                producer.produce(topic, key=processed['id'], value=json.dumps(processed), on_delivery=acked)
-                producer.poll(0)
+        response = requests.get(base_url, params=params, stream=True, auth=bearer_oauth)
 
-    producer.flush()
-    logging.info("{} messages were produced to topic {}!".format(delivered_records, topic))
+        for response_line in response.iter_lines():
+            if response_line:
+                json_response = json.loads(response_line)
+                
+                try:
+                    tweet_data = json_response.get('data')
+                    processed = process_streams(json.dumps(tweet_data))
+                except TypeError as err:
+                    logging.error(f"An error occurred while processing stream: {err}")
+                    continue
+                else:
+                    producer.produce(topic, key=processed['id'], value=json.dumps(processed), on_delivery=acked)
+                    producer.poll(0)
+
+        producer.flush()
+        logging.info("{} messages were produced to topic {}!".format(delivered_records, topic))
+    
+    except BaseException as err:
+        logging.error(f'An error occurred: {err}')
+        sys.exit()
 
 
 
@@ -155,8 +162,8 @@ def stream_events() -> None:
 
 def main():
     rules = get_rules()
-    delete = delete_all_rules(rules)
-    set = set_rules()
+    delete_all_rules(rules)
+    set_rules()
     stream_events()
 
 

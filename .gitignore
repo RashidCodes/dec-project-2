@@ -15,7 +15,6 @@ airflow.cfg
 *webserver_config.py
 *connections.json
 *snow_flake_rashid_pass
-**/profiles.yml
 vars.json
 *jaas_config.txt
 awscourse

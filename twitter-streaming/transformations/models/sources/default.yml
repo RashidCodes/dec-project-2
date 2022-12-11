@@ -1,0 +1,66 @@
+version: 2
+sources:
+  - name: default
+    database: default
+    schema: default
+    freshness: 
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 24, period: hour}
+    loaded_at_field: created_at
+    tables:
+      - name: tweets
+        description: 'A stream of tweets'
+        columns:
+          - name: verified
+            description: 'True if a twitter user is verified else False'
+            tests: 
+              - not_null
+
+          - name: profile_image_url
+            description: "The URL of the twitter user's profile image"
+            tests: 
+              - not_null
+
+          - name: id
+            description: 'The unique identifier of the tweet'
+            tests: 
+              - not_null
+
+          - name: created_at
+            description: 'The date and time the tweet was published'
+            tests: 
+              - not_null
+
+          - name: username
+            description: 'The username of the twitter user'
+            tests: 
+              - not_null
+
+          - name: author_id
+            description: 'A unique identifier of the twitter user'
+            tests: 
+              - not_null
+
+          - name: edit_history_tweet_ids
+            description: 'A list of unique identifiers of previous versions of the tweet'
+            tests: 
+              - not_null
+
+          - name: location
+            description: 'The location of the twitter user'
+            tests: 
+              - not_null
+
+          - name: name
+            description: 'The name of the twitter user'
+            tests: 
+              - not_null
+
+          - name: text
+            description: 'The tweet published by the twitter user'
+            tests: 
+              - not_null
+
+
+            
+      

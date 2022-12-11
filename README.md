@@ -20,6 +20,15 @@
 
 <br/><br/>
 
+<h1 id='first-introduction'>Deliverables</h1>
+
+- <a href='http://3.87.51.21:3050/'>Project Web App</a>
+- <a href='http://3.87.51.21:8088/superset/dashboard/1/?native_filters_key=MDoAX7lLXHPXWKwnu7q4YrFsSJsHu1jXmsuiIMkazGrvD3X3tZfVAi7EBaBZuGU0'>Superset Dashboard</a>
+- CICD Pipeline
+- Tweet Producer
+
+<br/>
+
 
 <h1 id='first-introduction'>Introduction</h1>
 
@@ -29,12 +38,12 @@ about 3,000 years ago. Soccer is played by 250 million players in over 200 count
 
 I'm a very big fan of the game. I'm also very passionate about data engineering and everything data. So, I decided to 
 use the data engineering skills/knowledge gained from the course to build a very simple streaming application that showcases 
-the twitter activity of other fans. The dashboard below shows the twitter activity.
+the twitter activity of other fans. More precisely, I wanted to know the nation with the most tweets about the tournament. The dashboard below shows the twitter activity.
 
 The production dashboard can be found <a href='http://3.87.51.21:3050/'>here</a>
 
 
-<img src='assets/dashboard.jpg' /> <br/>
+<img src='assets/dashboards.jpg' /> <br/>
 
 **Figure 1**: *Application Dashboard* 
 
@@ -99,7 +108,7 @@ another nation might be tweeting more aggressively.
 
 ## Workflow
 
-- The twitter producer loads a stream of tweets into a Kafka cluster hosted on [confluent](https://www.confluent.io/).
+- The twitter producer loads a stream of tweets into a Kafka topic called `tweets` hosted on [confluent](https://www.confluent.io/). The schema can be found in `twitter-streaming/producer/schema.json`.
 
 - Clickhouse consumes the twitter streams using a confluent HTTP Connector
 
@@ -139,10 +148,12 @@ Code changes are commited to the `dev` branch. After some inspection, the code i
 
 - Firstly a simple test is run against the backend (`twitter-streaming/backend/test_main.py`). The test checks whether one of the endpoints works as expected.
 - Once the test passes, the `deployment` worflow is triggered. In this step, container images are built on a ubuntu runner and deployed to dockerhub. The `--platform` option in the `Dockerfile` has to be removed completely or set to `linux/amd64` - the architecture of the production server.
-- Lastly, `restart_services.sh` is run on the production server to: 
+- A `restart_services.sh` is run on the production server to: 
     - Pull the latest images 
     - Restart the containers with the updated images
+- Lastly, an email about the status of the job is sent to my inbox.
 
+<img src='assets/status.png' />
 
 <br/>
 
@@ -161,7 +172,7 @@ Code changes are commited to the `dev` branch. After some inspection, the code i
 
 ## Production Dashboard
 
-- Finally, the url of the embedded dashboard must be changed from `localhost` to the  url of superset on the production server.
+- Finally, the host of the embedded dashboard must be changed from `localhost` to the production server.
 
 
 <br/>
