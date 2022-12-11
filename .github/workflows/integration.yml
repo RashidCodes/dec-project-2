@@ -1,7 +1,7 @@
 name: Integration
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
 
 env:
   host: ${{ secrets.CLICKHOUSE_BASE }}
@@ -32,6 +32,10 @@ jobs:
         run: |
           cd twitter-streaming/transformations
           dbt test --target prod
+      - name: Run dbt models
+        run: |
+          cd twitter-streaming/transformations
+          dbt run --target prod
 
 
     
