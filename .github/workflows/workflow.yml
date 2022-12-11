@@ -1,11 +1,35 @@
-name: Deployment
+name: Workflow
 on:
   push:
     branches: [ main ]
 
+env:
+  host: ${{ secrets.CLICKHOUSE_BASE }}
+  password: ${{ secrets.CLICKHOUSE_PASSWORD }}
+
 jobs:
-  build-and-deploy-images:
+  integration:
     runs-on: ubuntu-latest
+    steps:
+      - name: checkout main 
+        uses: actions/checkout@v3
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install dependencies 
+        run: |
+          cd twitter-streaming/backend
+          pip install -r requirements.txt
+      - name: Test endpoints
+        run: |
+          echo "PYTHONPATH=twitter-streaming/backend" >> $GITHUB_ENV
+          cd twitter-streaming/backend
+          pytest 
+
+  deployment:
+    runs-on: ubuntu-latest
+    needs: integration
     steps:
       - name: checkout main
         uses: actions/checkout@v3
@@ -50,20 +74,22 @@ jobs:
           push: true
           tags: kingmoh/dashboard:latest
 
-  push-files:
-    needs: build-and-deploy-images
+      - name: Install dependencies 
+        run: |
+          cd twitter-streaming/transformations
+          pip install -r requirements.txt
+
+      - name: Run dbt models
+        run: |
+          cd twitter-streaming/transformations
+          dbt run --target prod
+          
+  restart-services:
+    needs: deployment
     runs-on: ubuntu-latest 
     steps:
       - name: checkout dev 
         uses: actions/checkout@v3
-      - name: copy files via ssh
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          source: twitter-streaming/docker-compose.yml
-          target: /home/ubuntu
       - name: restart services 
         uses: appleboy/ssh-action@master 
         with:
@@ -73,3 +99,8 @@ jobs:
           script: |
             cd $HOME/twitter-streaming
             . ./restart_services.sh
+
+
+    
+
+    
