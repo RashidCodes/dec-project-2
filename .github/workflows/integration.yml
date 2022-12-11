@@ -1,7 +1,11 @@
 name: Integration
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
+
+env:
+  host: ${{ secrets.CLICKHOUSE_BASE_URL }}
+  password: ${{ secrets.CLICKHOUSE_PASSWORD }}
 
 jobs:
   integration:
@@ -24,6 +28,10 @@ jobs:
         run: |
           cd twitter-streaming/backend
           pytest test_main.py
+      - name: Test dbt models
+        run: |
+          cd twitter-streaming/transformations
+          dbt test --target prod
 
 
     

@@ -1,0 +1,48 @@
+{
+    "title": "Tweet Schema",
+    "description": "Tweet Schema",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "verified": {
+        "type": "string",
+        "description": "True if a twitter user is verified else False"
+      },
+      "profile_image_url": {
+        "type": "string",
+        "description": "The URL of the twitter user's profile image"
+      },
+      "id": {
+        "type": "string",
+        "description": "The unique identifier of the tweet"
+      },
+      "created_at": {
+        "type": "string",
+        "description": "The date and time the tweet was published"
+      },
+      "username": {
+        "type": "string",
+        "description": "The username of the twitter user"
+      },
+      "author_id": {
+        "type": "string",
+        "description": "A unique identifier of the twitter user"
+      },
+      "edit_history_tweet_ids": {
+        "type": "array",
+        "description": "A list of unique identifiers of previous versions of the tweet"
+      },
+      "location": {
+        "type": "string",
+        "description": "The location of the twitter user"
+      },
+      "name": {
+        "type": "string",
+        "description": "The name of the twitter user"
+      },
+      "text": {
+        "type": "string",
+        "description": "The tweet published by the twitter user"
+      }
+    }
+  }

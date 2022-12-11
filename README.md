@@ -37,7 +37,7 @@ about 3,000 years ago. Soccer is played by 250 million players in over 200 count
 
 I'm a very big fan of the game. I'm also very passionate about data engineering and everything data. So, I decided to 
 use the data engineering skills/knowledge gained from the course to build a very simple streaming application that showcases 
-the twitter activity of other fans. The dashboard below shows the twitter activity.
+the twitter activity of other fans. More precisely, I wanted to know the nation with the most tweets about the tournament. The dashboard below shows the twitter activity.
 
 The production dashboard can be found <a href='http://3.87.51.21:3050/'>here</a>
 
@@ -107,7 +107,7 @@ another nation might be tweeting more aggressively.
 
 ## Workflow
 
-- The twitter producer loads a stream of tweets into a Kafka cluster hosted on [confluent](https://www.confluent.io/).
+- The twitter producer loads a stream of tweets into a Kafka topic called `tweets` hosted on [confluent](https://www.confluent.io/). The schema can be found in `twitter-streaming/producer/schema.json`.
 
 - Clickhouse consumes the twitter streams using a confluent HTTP Connector
 

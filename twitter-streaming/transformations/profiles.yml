@@ -1,0 +1,16 @@
+transformations:
+  target: prod
+  outputs:
+    prod:
+      type: clickhouse
+      schema: default
+
+      # optional
+      driver: http 
+      port: 8443  
+      user: default 
+      host: "{{ env_var('host') }}"
+      password: "{{ env_var('password') }}"
+      verify: True 
+      secure: True 
+      connect_timeout: 10 
