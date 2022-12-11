@@ -21,10 +21,6 @@ jobs:
         run: |
           cd twitter-streaming/backend
           pip install -r requirements.txt
-      - name: Install dependencies 
-        run: |
-          cd twitter-streaming/transformations
-          pip install -r requirements.txt
       - name: Test endpoints
         run: |
           echo "PYTHONPATH=twitter-streaming/backend" >> $GITHUB_ENV
@@ -77,6 +73,11 @@ jobs:
           context: ./twitter-streaming/frontend
           push: true
           tags: kingmoh/dashboard:latest
+
+      - name: Install dependencies 
+        run: |
+          cd twitter-streaming/transformations
+          pip install -r requirements.txt
 
       - name: Run dbt models
         run: |
