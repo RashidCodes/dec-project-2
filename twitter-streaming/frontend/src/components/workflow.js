@@ -1,7 +1,7 @@
 const Workflow = () => {
     return (
         <div className="ml-6">
-            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono mt-20 mb-10 underline text-5xl'>Workflow</h1>
+            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono mt-20 mb-10 underline text-3xl'>Workflow</h1>
 
             <li>The twitter producer loads a stream of tweets into a Kafka cluster hosted on <a className='underline font-bold' href='https://www.confluent.io/'>confluent</a>.</li>
             <li>Clickhouse consumes the twitter streams using a confluent HTTP Connector</li>
