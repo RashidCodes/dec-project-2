@@ -142,6 +142,7 @@ def stream_events() -> None:
                 try:
                     tweet_data = json_response.get('data')
                     processed = process_streams(json.dumps(tweet_data))
+                    print(processed)
                 except TypeError as err:
                     logging.error(f"An error occurred while processing stream: {err}")
                     continue
