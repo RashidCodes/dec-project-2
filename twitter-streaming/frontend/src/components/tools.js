@@ -3,7 +3,7 @@ import usedTools from '../assets/tools.png';
 const Tools = () => {
     return (
         <div>
-            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono mt-20 mb-10 underline text-5xl'>Tools</h1>
+            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono mt-20 mb-10 underline text-4xl'>Tools</h1>
             <img src={usedTools} />
             <div class="overflow-x-auto mt-6 relative shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

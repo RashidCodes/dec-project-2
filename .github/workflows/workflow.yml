@@ -74,6 +74,13 @@ jobs:
           push: true
           tags: kingmoh/dashboard:latest
 
+      - name: Build and push enricher
+        uses: docker/build-push-action@v3
+        with:
+          context: ./twitter-streaming/enrichment
+          push: true
+          tags: kingmoh/enrich_twitter_streams:latest
+
       - name: Install dependencies 
         run: |
           cd twitter-streaming/transformations

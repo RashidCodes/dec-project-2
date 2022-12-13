@@ -1,7 +1,7 @@
 const Insights = () => {
     return (
         <div className="mt-8">   
-            <h1 style={{ color: '#3F839D' }} className='font-bold mb-10 font-mono underline text-5xl'>Basic Analytics</h1>
+            <h1 style={{ color: '#3F839D' }} className='font-bold mb-10 font-mono underline text-4xl'>Basic Analytics</h1>
             <h2 className='text-2xl font-mono font-bold mt-5 mb-2 text-pink-800'>Highest Number of Tweets</h2>
             <p className='font-mono my-3'>
                 The highest number of tweets was recorded on 7th December, 2022. 

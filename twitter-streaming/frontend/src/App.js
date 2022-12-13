@@ -65,7 +65,6 @@ function App() {
 
   return (
     <div className='container my-6 pt-6 font-mono'>  
-
       <Introduction />
       <div className='my-6' id='my-superset-container'></div>
       <Insights />

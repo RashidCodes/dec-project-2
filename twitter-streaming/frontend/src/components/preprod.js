@@ -1,7 +1,7 @@
 const PreProd = () => {
     return (
         <div>
-            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono mt-20 mb-10 underline text-5xl'>Preparing for Production</h1>
+            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono mt-20 mb-10 underline text-4xl'>Preparing for Production</h1>
             
             <div>
                 <h2 className='font-bold text-pink-800 font-mono mb-5 underline text-3xl'>Storage</h2>
@@ -41,7 +41,7 @@ const PreProd = () => {
                 <h2 className='font-bold text-pink-800 font-mono mt-10 mb-5 underline text-3xl'>Production Dashboard</h2>
                 <div className="ml-6">
                     
-                    <li>Ensure that there's enough storage on the server otherwise the latest images will not be pulled.</li>
+                    <li>Finally, the host of the embedded dashboard must be changed from <span className='prose rounded-md px-2 text-white py-1 bg-gray-500'>localhost</span> to the production server.</li>
                 </div>
             </div>
 
