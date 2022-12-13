@@ -222,7 +222,18 @@ The project was successful because tasks were broken into small sub-tasks.
 
 **Figure 6**: *Capstone Kanban*
 
+
+<br/>
+
+# Future Work
+
+- Improve superset authentication
+- Improve data cleansing 
+- Persist tweets in data warehouse infra.
+
 <br/><br/><br/>
+
+
 
 
 # Project 2: ELT Pipeline for Keyword Frequency and Sentiment Analysis

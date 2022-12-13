@@ -1,4 +1,5 @@
 import clickhouse_connect
+import random
 import requests
 import time 
 import logging 
@@ -40,6 +41,7 @@ def extract_and_load_user_data():
         raise Exception(f'Unable to get users details')
 
     data = response.json().get('data')
+
     records = []
 
     # Structure the data 
@@ -54,18 +56,34 @@ def extract_and_load_user_data():
             record['location'] if record.get('location') else ''
         ]
         records.append(value)
+    
+    # push data
+    client.insert('twitterUser', records, column_names=['id', 'verified', 'username', 'name', 'profile_image_url', 'created_at', 'location'])
 
-    try:
-        client.insert('twitterUser', records, column_names=['id', 'verified', 'username', 'name', 'profile_image_url', 'created_at', 'location'])
-    except BaseException as err:
-        logging.error(err)
-    else:
-        logging.info('Successfully pushed users details')
     
 
 
 if __name__ == '__main__':
+    empty_response = 0
 
     while True:
-        extract_and_load_user_data()
-        time.sleep(2)
+        try:
+            extract_and_load_user_data()
+            time.sleep(2)
+        except TypeError as err:
+            logging.error(err)
+            empty_response += 1
+
+            if empty_response <= 3:
+                time.sleep(random.randrange(10, 15))
+            elif empty_response > 3 and empty_response <= 5:
+                time.sleep(100)
+            else:
+                logging.info(f'Emtpy responses: {empty_response}')
+                logging.info("Too many empty responses. Shutting down. Try again later")
+                sys.exit()
+        except BaseException as err:
+            logging.error(f'An error occurred: {err}. Shutting down')
+            sys.exit()
+        else:
+            logging.info('Successfully pushed users details')

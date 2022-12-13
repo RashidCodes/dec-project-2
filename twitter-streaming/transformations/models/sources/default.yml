@@ -8,6 +8,38 @@ sources:
       error_after: {count: 24, period: hour}
     loaded_at_field: created_at
     tables:
+      - name: twitterUser
+        description: 'Details about twitter users'
+        columns:
+          - name: verified
+            description: True if a twitter user is verified else False
+            tests:
+              - not_null 
+          - name: profile_image_url
+            description: The URL of the twitter user's profile image
+            tests:
+              - not_null 
+          - name: id 
+            description: A unique identifier of the twitter user
+            tests:
+              - not_null 
+          - name: created_at 
+            description: The UTC datetime that the user account was created on Twitter
+            tests:
+              - not_null 
+          - name: username
+            description: The Twitter screen name, handle, or alias that this user identifies themselves with. 
+            tests:
+              - not_null
+          - name: location
+            description: The location specified in the user's profile, if the user provided one
+            tests:
+              - not_null 
+          - name: name 
+            description: The name of the user, as they’ve defined it on their profile. Not necessarily a person’s name
+            tests:
+              - not_null 
+
       - name: tweets
         description: 'A stream of tweets'
         columns:
