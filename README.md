@@ -26,6 +26,7 @@
 - <a href='http://3.87.51.21:8088/superset/dashboard/1/?native_filters_key=MDoAX7lLXHPXWKwnu7q4YrFsSJsHu1jXmsuiIMkazGrvD3X3tZfVAi7EBaBZuGU0'>Superset Dashboard</a>
 - CICD Pipeline
 - Tweet Producer
+- Tweet Streams Enricher
 
 <br/>
 
@@ -125,6 +126,8 @@ another nation might be tweeting more aggressively.
 
 - Lastly, NGINX is used as  single, reverse proxy server to handle requests.
 
+The stream enricher service enriches the streams by loading user data from a a different endpoint. It is not a streaming endpoint so it's run as a standalone service. The producer can run as a standalone service as well.
+
 
 <br/>
 
@@ -222,7 +225,18 @@ The project was successful because tasks were broken into small sub-tasks.
 
 **Figure 6**: *Capstone Kanban*
 
+
+<br/>
+
+# Future Work
+
+- Improve superset authentication
+- Improve data cleansing 
+- Persist tweets in data warehouse infra.
+
 <br/><br/><br/>
+
+
 
 
 # Project 2: ELT Pipeline for Keyword Frequency and Sentiment Analysis

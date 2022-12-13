@@ -23,6 +23,11 @@ const Workflow = () => {
             <li>
                 Lastly, NGINX is used as  single, reverse proxy server to handle requests.
             </li>
+
+            <div className='my-6 py-6 px-6 border-2 rounded-md border-zinc-800'>The <span>stream enricher</span> service enriches the streams by loading user data from a
+            a different endpoint. It is not a streaming endpoint so it's run as a standalone service. The producer can run
+            as a standalone service as well.</div>
+
         </div>
     )
 }

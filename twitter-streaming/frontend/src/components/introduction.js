@@ -1,7 +1,13 @@
+import Content from "./content";
+import Deliverables from "./deliverables";
+
 const Introduction = () => {
     return (
         <div>
-            <h1 style={{ color: '#3F839D' }} className='font-bold mb-10 font-mono underline text-5xl'>Introduction</h1>
+            <h1 style={{ color: '#3F839D' }} className='font-bold mb-10 font-mono underline text-5xl'>DEC Capstone Project</h1>
+            <Content />
+            <Deliverables />
+            <h2 style={{ color: '#3F839D' }} className='font-bold mb-10 font-mono underline text-4xl'>Introduction</h2>
             <p>
                 Soccer is a game played between two teams of eleven players with a ball. It is the most popular game in the world and in many countries, it's known as football. It isn't 
                 known exactly when the sport was created however the earliest versions of the game can be traced back to 

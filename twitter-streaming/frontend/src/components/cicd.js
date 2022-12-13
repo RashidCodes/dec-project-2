@@ -6,7 +6,7 @@ import status from '../assets/status.png';
 const CICD = () => {
     return (
         <div>
-            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono mt-20 mb-10 underline text-5xl'>CI/CD</h1>
+            <h1 style={{ color: '#3F839D' }} className='font-bold font-mono mt-20 mb-10 underline text-4xl'>CI/CD</h1>
             <img src={cicd} />
             <p className='italic mt-2 mb-6'> Figure 2: Integration and Deployment</p>
 
