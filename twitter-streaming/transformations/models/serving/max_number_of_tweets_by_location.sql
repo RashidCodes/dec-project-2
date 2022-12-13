@@ -36,7 +36,7 @@ user_name_window as (
         case 
             when twitterUser.username = '' then top_users.username 
             else twitterUser.username 
-        end as username,
+        end as most_frequent_tweeter,
         top_users.author_id as author_id,
         twitterUser.name as author_name,
         top_users.verified as verified,
@@ -58,7 +58,7 @@ filtered as (
     select 
         location,
         number_of_location_tweets,
-        username,
+        most_frequent_tweeter,
         author_id,
         author_name,
         verified,
