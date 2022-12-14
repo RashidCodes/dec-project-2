@@ -233,6 +233,8 @@ The project was successful because tasks were broken into small sub-tasks.
 - Improve superset authentication
 - Improve data cleansing 
 - Persist tweets in data warehouse infra.
+- Check EC2 Storage before pushing
+- Add sentiment analysis
 
 <br/><br/><br/>
 
